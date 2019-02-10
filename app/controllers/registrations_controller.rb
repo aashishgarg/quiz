@@ -1,5 +1,6 @@
 class RegistrationsController < ApplicationController
   # Before Actions
+  skip_before_action :authenticate_user!
   before_action :confirm_password, only: %i[create]
 
   def create
