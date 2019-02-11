@@ -43,18 +43,26 @@ ActiveRecord::Schema.define(version: 2019_02_10_152414) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "questions_quizzes", id: false, force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "quiz_id", null: false
+  end
+
   create_table "quizsets", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "quizsets_quizzes", id: false, force: :cascade do |t|
+    t.integer "quizset_id", null: false
+    t.integer "quiz_id", null: false
+  end
+
   create_table "quizzes", force: :cascade do |t|
-    t.bigint "question_id"
-    t.bigint "quizset_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_quizzes_on_question_id"
-    t.index ["quizset_id"], name: "index_quizzes_on_quizset_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +78,4 @@ ActiveRecord::Schema.define(version: 2019_02_10_152414) do
   add_foreign_key "attempts", "options"
   add_foreign_key "attempts", "quizzes"
   add_foreign_key "options", "questions"
-  add_foreign_key "quizzes", "questions"
-  add_foreign_key "quizzes", "quizsets"
 end

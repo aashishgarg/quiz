@@ -1,9 +1,11 @@
 class Quiz < ApplicationRecord
+  # Constants
+  SIZE = 1
+
   # Associations
-  belongs_to :question, inverse_of: :quizzes
-  belongs_to :quizset, inverse_of: :quizzes
-  accepts_nested_attributes_for :question
+  has_and_belongs_to_many :questions
+  has_and_belongs_to_many :quizsets
 
   # Validates
-  validates :quizset, uniqueness: { scope: :question, message: 'should have unique quizzes' }
+  validate proc { errors.add(:questions, "cannot exceed #{SIZE}") if questions.size > SIZE }
 end

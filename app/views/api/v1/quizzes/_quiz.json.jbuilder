@@ -1,4 +1,6 @@
-json.(quiz, :id, :created_at, :updated_at)
-json.question do
-  json.partial! 'api/v1/questions/question', question: quiz.question
+json.(quiz, :id, :name, :created_at, :updated_at)
+json.questions do
+  json.array!(quiz.questions) do |question|
+    json.partial! 'api/v1/questions/question', question: question
+  end
 end
