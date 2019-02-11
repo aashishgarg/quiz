@@ -10,31 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_152414) do
+ActiveRecord::Schema.define(version: 2019_02_11_135056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers_questions", id: false, force: :cascade do |t|
-    t.integer "option_id", null: false
-    t.integer "question_id", null: false
-  end
-
-  create_table "attempts", force: :cascade do |t|
-    t.bigint "quiz_id"
-    t.bigint "option_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["option_id"], name: "index_attempts_on_option_id"
-    t.index ["quiz_id"], name: "index_attempts_on_quiz_id"
-  end
-
   create_table "options", force: :cascade do |t|
     t.bigint "question_id"
     t.text "description"
+    t.boolean "is_answer", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
+  create_table "question_attempts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.bigint "option_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_id"], name: "index_question_attempts_on_option_id"
+    t.index ["question_id"], name: "index_question_attempts_on_question_id"
+    t.index ["user_id"], name: "index_question_attempts_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -75,7 +73,8 @@ ActiveRecord::Schema.define(version: 2019_02_10_152414) do
     t.index ["name"], name: "index_users_on_name"
   end
 
-  add_foreign_key "attempts", "options"
-  add_foreign_key "attempts", "quizzes"
   add_foreign_key "options", "questions"
+  add_foreign_key "question_attempts", "options"
+  add_foreign_key "question_attempts", "questions"
+  add_foreign_key "question_attempts", "users"
 end

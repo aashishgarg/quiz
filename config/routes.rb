@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1, constraints: ApiConstraint.new(version: 1, default: true) do
       resources :questions
-      resources :quizzes
+      resources :quizzes do
+        resources :question_attempts, only: %i[create]
+      end
       resources :quizsets
     end
   end

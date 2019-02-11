@@ -40,7 +40,7 @@ module Api
       end
 
       def question_params
-        params.require(:question).permit(:description, options_attributes: [:id, :_destroy, :description])
+        params.require(:question).permit(:description, options_attributes: [:id, :_destroy, :description, :is_answer])
       end
     end
   end

@@ -3,14 +3,9 @@ class CreateOptions < ActiveRecord::Migration[5.2]
     create_table :options do |t|
       t.references :question, foreign_key: true
       t.text :description
+      t.boolean :is_answer, default: false
 
       t.timestamps
-    end
-
-    # Join Table
-    create_table "answers_questions", id: false, force: :cascade do |t|
-      t.integer "option_id", null: false
-      t.integer "question_id",  null: false
     end
   end
 end

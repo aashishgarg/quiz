@@ -1,10 +1,11 @@
 class Question < ApplicationRecord
   # Associations
   has_many :options, inverse_of: :question
+  has_one :answer, -> { answers }, class_name: 'Option'
   has_and_belongs_to_many :quizzes
+  has_many :question_attempts, inverse_of: :question, dependent: :destroy
+  has_many :attempted_by_users, class_name: 'User', through: :question_attempts
 
-  # has_and_belongs_to_many :answer, class_name: 'Option', join_table: 'answers_questions', before_add: proc { |q, o| q.answer.clear }
-  # has_many :attempts, inverse_of: :question, dependent: :destroy
   accepts_nested_attributes_for :options
 
   # Validations

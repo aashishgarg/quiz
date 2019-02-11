@@ -1,1 +1,1 @@
-json.(option, :id, :description, :created_at, :updated_at)
+json.(option, :id, :description, :is_answer, :created_at, :updated_at)
