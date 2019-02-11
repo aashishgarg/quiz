@@ -6,7 +6,7 @@ module Api
 
       def create
         @question = Question.create(question_params)
-        render json: { errors: @question.errors }, status: :unprocessable_entity unless @question
+        render json: { errors: @question.errors }, status: :unprocessable_entity unless @question.valid?
       end
 
       def update
