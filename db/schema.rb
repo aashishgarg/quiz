@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_135056) do
     t.boolean "is_answer", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["is_answer"], name: "index_options_on_is_answer"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
 
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_135056) do
   create_table "questions_quizzes", id: false, force: :cascade do |t|
     t.integer "question_id", null: false
     t.integer "quiz_id", null: false
+    t.index ["question_id", "quiz_id"], name: "index_questions_quizzes_on_question_id_and_quiz_id", unique: true
   end
 
   create_table "quizsets", force: :cascade do |t|
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_135056) do
   create_table "quizsets_quizzes", id: false, force: :cascade do |t|
     t.integer "quizset_id", null: false
     t.integer "quiz_id", null: false
+    t.index ["quizset_id", "quiz_id"], name: "index_quizsets_quizzes_on_quizset_id_and_quiz_id", unique: true
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -67,9 +70,11 @@ ActiveRecord::Schema.define(version: 2019_02_11_135056) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.boolean "is_admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
+    t.index ["is_admin"], name: "index_users_on_is_admin"
     t.index ["name"], name: "index_users_on_name"
   end
 

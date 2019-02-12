@@ -15,6 +15,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, length: { minimum: 2, maximum: 199 }
 
+  def admin?
+    is_admin
+  end
+
   # Get current user
   def self.current
     Thread.current[:user]
@@ -30,6 +34,6 @@ class User < ApplicationRecord
   end
 
   def self.top
-    User.all.sort_by(&:score)
+    User.joins(:question_attempts).sort_by { |user| -user.score }
   end
 end

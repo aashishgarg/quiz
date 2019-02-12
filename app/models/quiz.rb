@@ -8,4 +8,5 @@ class Quiz < ApplicationRecord
 
   # Validates
   validate proc { errors.add(:questions, "cannot exceed #{SIZE}") if questions.size > SIZE }
+  validate proc { errors.add(:user, "not admin") unless User.current.admin? }
 end

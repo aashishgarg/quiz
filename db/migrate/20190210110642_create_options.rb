@@ -7,5 +7,7 @@ class CreateOptions < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :options, :is_answer
   end
 end

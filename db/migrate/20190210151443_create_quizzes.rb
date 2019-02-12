@@ -18,4 +18,7 @@ class CreateQuizzes < ActiveRecord::Migration[5.2]
     t.integer "quizset_id", null: false
     t.integer "quiz_id",  null: false
   end
+
+  add_index :questions_quizzes, [:question_id, :quiz_id], :unique => true
+  add_index :quizsets_quizzes, [:quizset_id, :quiz_id], :unique => true
 end

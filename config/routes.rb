@@ -6,7 +6,13 @@ Rails.application.routes.draw do
         resources :question_attempts, only: %i[create]
       end
       resources :quizsets
+      resources :users, only: [:index] do
+        collection do
+          get 'top', to: redirect { |_, request| "api/users?top=true&#{request.query_string}" }
+        end
+      end
     end
   end
+
   post 'sign-up', to: 'registrations#create', as: 'sign_up'
 end
