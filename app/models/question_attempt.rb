@@ -9,7 +9,7 @@ class QuestionAttempt < ApplicationRecord
 
   # Validations
   validates :question_id, uniqueness: { scope: :user_id, message: 'already attempted!' }
-  validate :own_options_only
+  validate proc { errors.add(:options, 'not relevant') unless option.in?(question.options) }
 
   # Callbacks
   after_initialize proc { self.user = User.current }
@@ -17,13 +17,16 @@ class QuestionAttempt < ApplicationRecord
   # Delegates
   delegate :answer, to: :question
 
-  def score
-    question.answer == option ? SCORE[:right] : SCORE[:wrong]
+  # Scopes
+  scope :successful,
+        -> { joins(:option)
+                 .where('question_attempts.option_id = options.id and options.is_answer = (?)', true) }
+
+  def successful?
+    QuestionAttempt.includes(:option).where(id: id, options: { is_answer: true }).present?
   end
 
-  private
-
-  def own_options_only
-    errors.add(:options, 'not relevant') unless option.in?(question.options)
+  def score
+    SCORE[successful? ? :right : :wrong]
   end
 end

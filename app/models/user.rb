@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+  # Constants
+  DASHBOARD_COUNT = 10
+
   # Inclusions
   has_secure_password
 
   # Associations
   has_many :question_attempts, inverse_of: :user, dependent: :destroy
+  has_many :successful_attempts, -> { successful }, class_name: 'QuestionAttempt', inverse_of: :user, dependent: :destroy
   has_many :attempted_questions, class_name: 'Question', through: :question_attempts, source: :question
   has_many :attempted_quizzes, class_name: 'Quiz', through: :attempted_questions, source: :quizzes
 
@@ -23,5 +27,9 @@ class User < ApplicationRecord
 
   def score
     question_attempts.collect(&:score).inject(&:+)
+  end
+
+  def self.top
+    User.includes(question_attempts: [:option]).sort_by(&:score).first(DASHBOARD_COUNT)
   end
 end

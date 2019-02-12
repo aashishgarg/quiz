@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   # Associations
   has_many :options, inverse_of: :question
-  has_one :answer, -> { answers }, class_name: 'Option'
+  has_one :answer, -> { answers }, inverse_of: :question, class_name: 'Option'
   has_and_belongs_to_many :quizzes
   has_many :question_attempts, inverse_of: :question, dependent: :destroy
   has_many :attempted_by_users, class_name: 'User', through: :question_attempts
