@@ -30,6 +30,6 @@ class User < ApplicationRecord
   end
 
   def self.top
-    User.includes(question_attempts: [:option]).sort_by(&:score).first(DASHBOARD_COUNT)
+    User.all.sort_by(&:score)
   end
 end

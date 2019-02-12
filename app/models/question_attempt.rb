@@ -22,11 +22,11 @@ class QuestionAttempt < ApplicationRecord
         -> { joins(:option)
                  .where('question_attempts.option_id = options.id and options.is_answer = (?)', true) }
 
-  def successful?
-    QuestionAttempt.includes(:option).where(id: id, options: { is_answer: true }).present?
+  def right?
+    Question.includes(:options).where(options: { id: option_id, options: { is_answer: true } }).present?
   end
 
   def score
-    SCORE[successful? ? :right : :wrong]
+    SCORE[right? ? :right : :wrong]
   end
 end
