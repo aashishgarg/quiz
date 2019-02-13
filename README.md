@@ -13,3 +13,7 @@
 * Take the file apis.json in public folder of the project.
 * Import the apis.json file.
 * Test APIs.
+
+#### For running model tests
+
+* rspec spec/models/
