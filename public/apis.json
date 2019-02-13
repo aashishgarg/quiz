@@ -1,0 +1,328 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-02-13T02:23:37.647Z",
+	"__export_source": "insomnia.desktop.app:v5.16.4",
+	"resources": [
+		{
+			"_id": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"created": 1549683840937,
+			"description": "",
+			"modified": 1549683840937,
+			"name": "Quiz",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_4e158c9d0d3a4bffa7dc62d4ad30b627",
+			"color": null,
+			"created": 1549683841104,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1549683841104,
+			"name": "New Environment",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_9c8e39757d644e53961a497930fb594e",
+			"cookies": [],
+			"created": 1549683841106,
+			"modified": 1549683841106,
+			"name": "Default Jar",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_b444dbb2be4a4341beb1b2142d688ac5",
+			"created": 1549723667451,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549889942433,
+			"modified": 1549891471866,
+			"name": "Registration",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_b03dd298fb9b4af9b34a60ecd113ecdc",
+			"created": 1549803830660,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549848373637.75,
+			"modified": 1549986159591,
+			"name": "Quizset",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_590fcc8a9d3f4e159fd5d8576bf79458",
+			"created": 1549889703016,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549889942408,
+			"modified": 1549891477093,
+			"name": "Question",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_41ecd4cbcdb34ea1911e1957ca9ebe92",
+			"created": 1549889942383,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549889942383,
+			"modified": 1549889942383,
+			"name": "Quiz",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_dc31ff9590a44a979125a6d808aa9bb7",
+			"created": 1549894256893,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549806804892.5,
+			"modified": 1549986133720,
+			"name": "Quiz Attempt",
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_d3cbf44345c246f0a001ccc5733c58b5",
+			"authentication": {},
+			"body": {},
+			"created": 1549984235841,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_df52ad42af454edb9f39f3c8f66ef8eb",
+					"name": "Accept",
+					"value": "version=1"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549765236147.25,
+			"method": "GET",
+			"modified": 1549986138417,
+			"name": "top",
+			"parameters": [],
+			"parentId": "wrk_e7b74d76c0ad4be2ba50d818e2eab7dd",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/users?top=true",
+			"_type": "request"
+		},
+		{
+			"_id": "env_aea6ab11abc14a7e9dab414da52ef2d3",
+			"color": "#5028ea",
+			"created": 1549683858860,
+			"data": {
+				"base_url": "http://localhost:3000/"
+			},
+			"isPrivate": false,
+			"modified": 1549723726044,
+			"name": "Development",
+			"parentId": "env_4e158c9d0d3a4bffa7dc62d4ad30b627",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_918e2101babe4d93819be7c6d126fdd4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"user\": {\n\t\t\"name\": \"ashish3\",\n\t\t\"email\": \"ashish2.kumar99@trantorinc.com\",\n\t\t\"password\": \"Welcome@123\",\n\t\t\"password_confirmation\": \"Welcome@123\",\n\t\t\"is_admin\": true\n\t}\n}"
+			},
+			"created": 1549723685323,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_74f334566d5f49b9ba5b21d4c3d4e90a",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549723685323,
+			"method": "POST",
+			"modified": 1549985600462,
+			"name": "Signup",
+			"parameters": [],
+			"parentId": "fld_b444dbb2be4a4341beb1b2142d688ac5",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/sign-up.json",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6b5e3914280e4ccda908e26a2371ae67",
+			"authentication": {
+				"disabled": false,
+				"password": "Welcome@123",
+				"type": "basic",
+				"username": "{% response 'body', 'req_918e2101babe4d93819be7c6d126fdd4', '$.user.email' %}"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"quizset\": {\n\t\t\"name\": \"Quizset 3\",\n\t\t\"quiz_ids\": [\n\t\t\t1\n\t\t]\n\t}\n}"
+			},
+			"created": 1549803846798,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_fef56429599c49f4bd69b4cb2b31fdba",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_e4cb691be7bd40e79f20870f1c88f1f8",
+					"name": "Accept",
+					"value": "version=1"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549803846798,
+			"method": "POST",
+			"modified": 1549985992606,
+			"name": "CREATE",
+			"parameters": [],
+			"parentId": "fld_b03dd298fb9b4af9b34a60ecd113ecdc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/quizsets",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a81689e11f25481d96c6d1b2d1dc0596",
+			"authentication": {
+				"disabled": false,
+				"password": "Welcome@123",
+				"type": "basic",
+				"username": "{% response 'body', 'req_918e2101babe4d93819be7c6d126fdd4', '$.user.email' %}"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"question\": {\n\t\t\"description\": \"Question 1\",\n\t\t\"options_attributes\": [\n\t\t\t{\n\t\t\t\t\"description\": \"Option 1-1\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"description\": \"Option 1-2\",\n\t\t\t\t\"is_answer\": true\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"description\": \"Option 1-3\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"description\": \"Option 1-4\"\n\t\t\t}\n\t\t]\n\t}\n}"
+			},
+			"created": 1549889718285,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_57d6d738b8d947a9bc866909d8b6b0fc",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_3da7cb39297445f197821edf495ba436",
+					"name": "Accept",
+					"value": "version=1"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549889718285,
+			"method": "POST",
+			"modified": 1549968505848,
+			"name": "CREATE",
+			"parameters": [],
+			"parentId": "fld_590fcc8a9d3f4e159fd5d8576bf79458",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/questions",
+			"_type": "request"
+		},
+		{
+			"_id": "req_9e965e8bc4624cb3acc82453ac79d99f",
+			"authentication": {
+				"disabled": false,
+				"password": "Welcome@123",
+				"type": "basic",
+				"username": "{% response 'body', 'req_918e2101babe4d93819be7c6d126fdd4', '$.user.email' %}"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"quiz\": {\n\t\t\"name\": \"Quiz 2\",\n\t\t\"question_ids\": [\n\t\t\t1\n\t\t]\n\t}\n}"
+			},
+			"created": 1549889957607,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_5a3eeb68b6774abaa02aa2d01633a1f7",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_0cbcd521a0b14568b1d5adf9f6e68ada",
+					"name": "Accept",
+					"value": "version=1"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549889957607,
+			"method": "POST",
+			"modified": 1549984683628,
+			"name": "CREATE",
+			"parameters": [],
+			"parentId": "fld_41ecd4cbcdb34ea1911e1957ca9ebe92",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/quizzes",
+			"_type": "request"
+		},
+		{
+			"_id": "req_16d1d6c31451486cbd28762415c71ca2",
+			"authentication": {
+				"disabled": false,
+				"password": "Welcome@123",
+				"type": "basic",
+				"username": "{% response 'body', 'req_918e2101babe4d93819be7c6d126fdd4', '$.user.email' %}"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"question_attempt\": {\n\t\t\"question_id\": 1,\n\t\t\"option_id\": 2\n\t}\n}"
+			},
+			"created": 1549894313973,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_1c5afae6c2c2426da7e6b4abb6efbcc4",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_2b6b66e52a0d49fc8c65116cb47ea5a7",
+					"name": "Accept",
+					"value": "version=1"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549894313973,
+			"method": "POST",
+			"modified": 1549986023330,
+			"name": "CREATE",
+			"parameters": [],
+			"parentId": "fld_dc31ff9590a44a979125a6d808aa9bb7",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ base_url  }}/api/quizzes/{% response 'body', 'req_9e965e8bc4624cb3acc82453ac79d99f', '$.quiz.id' %}/question_attempts",
+			"_type": "request"
+		}
+	]
+}

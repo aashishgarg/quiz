@@ -1,24 +1,15 @@
-# README
+# Quiz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Setup Instructions
 
-Things you may want to cover:
+* Create all yml files from yml.example files
+* bundle install
+* rails db:create db:migrate
+* rails server
 
-* Ruby version
+#### Test APIS
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Download insomnia(Rest API client)
+* Take the file apis.json in public folder of the project.
+* Import the apis.json file.
+* Test APIs.
